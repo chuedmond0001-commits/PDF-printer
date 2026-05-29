@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local PDF Tools</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>Local PDF Tools</h1>
+          <p>Print batches and merge PDFs/photos from this computer.</p>
+        </div>
+        <div class="status-pill">localhost</div>
+      </header>
+
+      <nav class="tabs" aria-label="Tool selector">
+        <button class="tab active" type="button" data-tab="print-panel">Print</button>
+        <button class="tab" type="button" data-tab="print-one-panel">Print One</button>
+        <button class="tab" type="button" data-tab="merge-panel">Merge</button>
+        <button class="tab" type="button" data-tab="split-panel">Split PDF</button>
+        <button class="tab" type="button" data-tab="geostudio-panel">GeoStudio</button>
+      </nav>
+
+      <section id="print-panel" class="panel active">
+        <form id="print-form" class="tool-grid">
+          <div class="field wide">
+            <label for="print-folder">Folder</label>
+            <div class="picker-row">
+              <input id="print-folder" name="folder" type="text" placeholder="Choose a folder with files to print">
+              <button class="secondary" type="button" data-pick-folder="print-folder">Browse</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="printer">Printer</label>
+            <select id="printer" name="printer">
+              <option value="">Loading printers...</option>
+            </select>
+            <small id="printer-error" class="error"></small>
+          </div>
+
+          <div class="field pdf-output">
+            <label for="save-pdf-folder">Output Folder</label>
+            <div class="picker-row compact-picker">
+              <input id="save-pdf-folder" name="save_pdf_folder" type="text" placeholder="Where PDF files will be saved">
+              <button class="secondary" type="button" data-pick-folder="save-pdf-folder">Browse</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mode">Files</label>
+            <select id="mode" name="mode">
+              <option value="all">All supported</option>
+              <option value="pdf">PDF only</option>
+              <option value="word">Word/RTF only</option>
+              <option value="excel">Excel only</option>
+            </select>
+          </div>
+
+          <div class="field paper-option">
+            <label for="duplex">Duplex</label>
+            <select id="duplex" name="duplex">
+              <option value="none">Single sided</option>
+              <option value="vertical">Long edge</option>
+              <option value="horizontal">Short edge</option>
+            </select>
+          </div>
+
+          <div class="field paper-option">
+            <label for="color">Color</label>
+            <select id="color" name="color">
+              <option value="yes">Color</option>
+              <option value="no">Black and white</option>
+            </select>
+          </div>
+
+          <div class="field paper-option">
+            <label for="backend">Engine</label>
+            <select id="backend" name="backend">
+              <option value="pdfxchange">PDF-XChange</option>
+              <option value="shell">Windows shell</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="pages">Pages</label>
+            <input id="pages" name="pages" type="text" placeholder="All pages">
+          </div>
+
+          <div class="field">
+            <label for="delay">Delay</label>
+            <input id="delay" name="delay" type="number" min="0" step="0.5" value="2">
+          </div>
+
+          <div class="field">
+            <label for="exclude">Exclude</label>
+            <input id="exclude" name="exclude" type="hidden">
+            <div id="exclude-summary" class="readonly-summary">No files excluded</div>
+          </div>
+
+          <div class="checks wide">
+            <label><input name="dry_run" type="checkbox"> Preview only</label>
+            <label><input name="recursive" type="checkbox"> Include subfolders</label>
+            <label class="paper-option"><input name="print_dialog" type="checkbox"> Show PDF-XChange print dialog</label>
+            <label><input name="keep_temp_pdfs" type="checkbox" checked> Keep temp PDFs</label>
+          </div>
+
+          <div class="actions wide">
+            <button class="secondary" id="preview-print-files" type="button">Preview Files</button>
+            <button type="submit">Start Print Job</button>
+          </div>
+
+          <div class="file-preview wide">
+            <div class="preview-head">
+              <strong>Files Found - check files to exclude</strong>
+              <span id="print-preview-count">Not previewed</span>
+            </div>
+            <div id="print-file-preview" class="preview-list"></div>
+          </div>
+        </form>
+      </section>
+
+      <section id="print-one-panel" class="panel">
+        <form id="print-one-form" class="tool-grid">
+          <div class="field wide">
+            <label for="single-file">File</label>
+            <div class="picker-row">
+              <input id="single-file" name="file" type="text" placeholder="Choose one PDF/Word/Excel file to print">
+              <button class="secondary" id="pick-print-file" type="button">Browse</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="single-printer">Printer</label>
+            <select id="single-printer" name="printer">
+              <option value="">Loading printers...</option>
+            </select>
+          </div>
+
+          <div class="field pdf-output">
+            <label for="single-save-pdf-folder">Output Folder</label>
+            <div class="picker-row compact-picker">
+              <input id="single-save-pdf-folder" name="save_pdf_folder" type="text" placeholder="Where PDF file will be saved">
+              <button class="secondary" type="button" data-pick-folder="single-save-pdf-folder">Browse</button>
+            </div>
+          </div>
+
+          <div class="field paper-option">
+            <label for="single-duplex">Duplex</label>
+            <select id="single-duplex" name="duplex">
+              <option value="none">Single sided</option>
+              <option value="vertical">Long edge</option>
+              <option value="horizontal">Short edge</option>
+            </select>
+          </div>
+
+          <div class="field paper-option">
+            <label for="single-color">Color</label>
+            <select id="single-color" name="color">
+              <option value="yes">Color</option>
+              <option value="no">Black and white</option>
+            </select>
+          </div>
+
+          <div class="field paper-option">
+            <label for="single-backend">Engine</label>
+            <select id="single-backend" name="backend">
+              <option value="pdfxchange">PDF-XChange</option>
+              <option value="shell">Windows shell</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="single-pages">Pages</label>
+            <input id="single-pages" name="pages" type="text" placeholder="All pages">
+          </div>
+
+          <div class="field">
+            <label for="single-delay">Delay</label>
+            <input id="single-delay" name="delay" type="number" min="0" step="0.5" value="2">
+          </div>
+
+          <div class="checks wide">
+            <label><input name="dry_run" type="checkbox"> Preview only</label>
+            <label class="paper-option"><input name="print_dialog" type="checkbox"> Show PDF-XChange print dialog</label>
+            <label><input name="keep_temp_pdfs" type="checkbox" checked> Keep temp PDFs</label>
+          </div>
+
+          <div class="actions wide">
+            <button type="submit">Print This File</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="merge-panel" class="panel">
+        <form id="merge-form" class="tool-grid">
+          <div class="field wide">
+            <label for="merge-folder">Folder</label>
+            <div class="picker-row">
+              <input id="merge-folder" name="folder" type="text" placeholder="Choose a folder, or pick exact files below">
+              <button class="secondary" type="button" data-pick-folder="merge-folder">Browse</button>
+            </div>
+          </div>
+
+          <div class="field wide">
+            <label>Exact files</label>
+            <div class="picker-row">
+              <input id="merge-files-label" type="text" placeholder="No exact files selected" readonly>
+              <button class="secondary" id="pick-merge-files" type="button">Pick Files</button>
+            </div>
+            <input id="merge-files" name="files" type="hidden">
+          </div>
+
+          <div class="field wide">
+            <label for="output">Output PDF</label>
+            <input id="output" name="output" type="text" placeholder="Blank creates merged_YYYYMMDD_HHMMSS.pdf">
+          </div>
+
+          <div class="field">
+            <label for="merge-exclude">Exclude</label>
+            <input id="merge-exclude" name="exclude" type="hidden">
+            <div id="merge-exclude-summary" class="readonly-summary">No files excluded</div>
+          </div>
+
+          <div class="checks wide">
+            <label><input name="recursive" type="checkbox"> Include subfolders</label>
+            <label><input name="open_merged" type="checkbox" checked> Open in PDF-XChange</label>
+          </div>
+
+          <div class="actions wide">
+            <button class="secondary" id="preview-merge-files" type="button">Preview Files</button>
+            <button type="submit">Create Merged PDF</button>
+          </div>
+
+          <div class="file-preview wide">
+            <div class="preview-head">
+              <strong>Files Found - check files to exclude</strong>
+              <span id="merge-preview-count">Not previewed</span>
+            </div>
+            <div id="merge-file-preview" class="preview-list"></div>
+          </div>
+        </form>
+      </section>
+
+      <section id="split-panel" class="panel">
+        <form id="split-form" class="tool-grid">
+          <div class="field wide">
+            <label for="split-input-pdf">PDF</label>
+            <div class="picker-row">
+              <input id="split-input-pdf" name="input_pdf" type="text" placeholder="Choose one PDF to split">
+              <button class="secondary" id="pick-split-pdf" type="button">Browse</button>
+            </div>
+          </div>
+
+          <div class="field wide">
+            <label for="split-output-folder">Output Folder</label>
+            <div class="picker-row">
+              <input id="split-output-folder" name="output_folder" type="text" placeholder="Where separated PDF files will be saved">
+              <button class="secondary" type="button" data-pick-folder="split-output-folder">Browse</button>
+            </div>
+          </div>
+
+          <div class="field wide">
+            <label for="split-ranges">Pages</label>
+            <input id="split-ranges" name="ranges" type="text" placeholder="Blank = one file per page, or use 1-3,4,5-7">
+          </div>
+
+          <div class="checks wide">
+            <label><input name="open_folder" type="checkbox" checked> Open output folder</label>
+          </div>
+
+          <div class="actions wide">
+            <button type="submit">Split PDF</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="geostudio-panel" class="panel">
+        <form id="geostudio-form" class="tool-grid">
+          <div class="field wide">
+            <label for="geostudio-project">GeoStudio Project</label>
+            <div class="picker-row">
+              <input id="geostudio-project" name="project" type="text" placeholder="Choose a .gsz file">
+              <button class="secondary" id="pick-geostudio-file" type="button">Browse</button>
+            </div>
+          </div>
+
+          <div class="field wide">
+            <label for="geostudio-output-folder">Output Folder</label>
+            <div class="picker-row">
+              <input id="geostudio-output-folder" name="output_folder" type="text" placeholder="Where GeoStudio reports/PDFs will be saved">
+              <button class="secondary" type="button" data-pick-folder="geostudio-output-folder">Browse</button>
+            </div>
+          </div>
+
+          <div class="field wide">
+            <label for="geostudio-analyses">Analyses</label>
+            <div class="picker-row">
+              <input id="geostudio-analyses" name="analyses" type="text" placeholder="Blank = all analyses, or comma-separated names">
+              <button class="secondary" id="load-geostudio-analyses" type="button">Load</button>
+            </div>
+          </div>
+
+          <div class="file-preview wide">
+            <div class="preview-head">
+              <strong>Analyses Found</strong>
+              <span id="geostudio-analysis-count">Not loaded</span>
+            </div>
+            <div id="geostudio-analysis-preview" class="preview-list"></div>
+          </div>
+
+          <div class="checks wide">
+            <label><input name="solve" type="checkbox"> Solve before report</label>
+            <label><input name="results" type="checkbox" checked> Include results report</label>
+            <label><input name="pdf" type="checkbox" checked> Convert HTML report to PDF</label>
+            <label><input id="geostudio-print-pdf" name="print_pdf" type="checkbox"> Print generated PDFs</label>
+            <label><input name="open_folder" type="checkbox" checked> Open output folder</label>
+          </div>
+
+          <div class="field">
+            <label for="geostudio-pages-per-sheet">HTML-to-PDF Pages Per Sheet</label>
+            <select id="geostudio-pages-per-sheet" name="pages_per_sheet">
+              <option value="2" selected>2 pages</option>
+              <option value="1">1 page</option>
+              <option value="4">4 pages</option>
+            </select>
+          </div>
+
+          <div class="field geostudio-print-option hidden">
+            <label for="geostudio-printer">Printer</label>
+            <select id="geostudio-printer" name="printer">
+              <option value="">Loading printers...</option>
+            </select>
+          </div>
+
+          <div class="field geostudio-print-option hidden">
+            <label for="geostudio-print-pages">Pages</label>
+            <input id="geostudio-print-pages" name="print_pages" type="text" placeholder="Blank = all pages">
+          </div>
+
+          <div class="field geostudio-print-option hidden">
+            <label for="geostudio-print-backend">Engine</label>
+            <select id="geostudio-print-backend" name="print_backend">
+              <option value="pdfxchange">PDF-XChange</option>
+              <option value="shell">Windows shell</option>
+            </select>
+          </div>
+
+          <div class="actions wide">
+            <button type="submit">Run GeoStudio Report</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="output">
+        <div class="output-head">
+          <h2>Run Output</h2>
+          <span id="job-status">Idle</span>
+        </div>
+        <pre id="log">Ready.</pre>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

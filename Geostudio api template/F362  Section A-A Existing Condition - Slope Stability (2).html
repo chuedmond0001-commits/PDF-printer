@@ -1,0 +1,869 @@
+			 <!--
+			 
+
+			 This report is in HTML format.  To view it, open it in your web browser.
+			 To edit it, open it in a word processor such as Microsoft Word.
+			 
+
+			 -->
+
+			 
+			 <html>
+			 <head>
+			 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+			 <meta name='Generator' content='Microsoft WORD' />
+			 <title>Slope Stability (2)</title>
+			 <style>
+								 span.Value { color: #4F81BD }
+								 p, p.MsoNormal { margin: 0pt; margin-bottom: 0.001pt; font-size: 11pt; font-family: 'Calibri', 'sans-serif' }
+								 p.MsoTitle { color: black; border-bottom: solid #4F81BD 1pt; margin-bottom: 2pt; font-size: 28pt; font-family: 'Calibri', 'sans-serif'; letter-spacing: .25pt }
+								 h1 { color: #7f7f7f; margin-top: 24pt; margin-bottom: 0pt; font-size: 18pt; font-family: 'Calibri', 'sans-serif'; page-break-after:avoid }
+								 h2 { color: #7f7f7f; margin-top: 10pt; margin-bottom: 0pt; font-size: 14pt; font-family: 'Calibri', 'sans-serif'; page-break-after:avoid }
+								 h3 { color: #7f7f7f; margin-top: 15pt; margin-bottom: 5pt; margin-left: 24pt; font-size: 12pt; font-family: 'Calibri', 'sans-serif'; page-break-after:avoid }
+					 table { border-collapse: collapse; margin-left: 24pt; line-height: 115%; font-size: 11pt; font-family: 'Calibri', 'sans-serif' }
+					 th { padding: .75pt 6pt; border: 1pt solid gray; font-size: 11pt; font-family: 'Calibri', 'sans-serif'; font-weight: normal }
+					 td { padding: .75pt 6pt; border: 1pt solid gray; font-size: 11pt; font-family: 'Calibri', 'sans-serif' }
+					 td { tab-stops: decimal 0.92cm }
+					 p.Copyright { color: black; font-size: 8pt; margin-bottom: 15pt; font-family: 'Calibri', 'sans-serif' }
+					 .Report1 { margin-left: 24pt }
+.Report2 { margin-left: 48pt }
+.Report3 { margin-left: 72pt }
+.Report4 { margin-left: 96pt }
+</style>
+			 </head>
+			 
+			 <body>
+<p class='MsoTitle'>Slope Stability (2)</p>
+<p class='Copyright'>Report generated using GeoStudio 2025.1.1.  Copyright &copy; 2025 Bentley Systems, Incorporated.</p><h1>File Information</h1>
+<p class='Report1'>File Version: <span class='Value'>11.08</span></p>
+<p class='Report1'>Product Version: <span class='Value'>25.1.1.182</span></p>
+<p class='Report1'>Created By: <span class='Value'>Chu, Edmond</span></p>
+<p class='Report1'>Last Edited By: <span class='Value'>Chu, Edmond</span></p>
+<p class='Report1'>Revision Number: <span class='Value'>43</span></p>
+<p class='Report1'>Date: <span class='Value'>05/28/2026</span></p>
+<p class='Report1'>Time: <span class='Value'>11:15:57 AM</span></p>
+<p class='Report1'>File Name: <span class='Value'>F362  Section A-A Existing Condition.gsz</span></p>
+<p class='Report1'>Directory: <span class='Value'>C:\Users\ChuE\OneDrive - AECOM\^^Monthy work folder\Code\Print pdf& sent to printer\Geostudio api template\</span></p>
+<p class='Report1'>Last Solved Date: <span class='Value'>05/29/2026</span></p>
+<p class='Report1'>Last Solved Time: <span class='Value'>12:26:04 PM</span></p>
+<h1>Project Settings</h1>
+<p class='Report1'>Unit System: <span class='Value'>International System of Units (SI)</span></p>
+<h1>Analysis Settings</h1>
+<h2>Slope Stability (2)</h2>
+<p class='Report1'>Kind: <span class='Value'>SLOPE/W</span></p>
+<p class='Report1'>Analysis Type: <span class='Value'>Limit Equilibrium</span></p>
+<p class='Report1'>Settings</p>
+<p class='Report2'>Method: <span class='Value'>Morgenstern-Price</span></p>
+<p class='Report2'>Side Function Settings</p>
+<p class='Report3'>Side Function: <span class='Value'>Half-Sine</span></p>
+<p class='Report2'>PWP Conditions from: <span class='Value'>Piezometric Surfaces</span></p>
+<p class='Report2'>Apply Phreatic Correction: <span class='Value'>No</span></p>
+<p class='Report2'>Staged Rapid Drawdown Analysis: <span class='Value'>No</span></p>
+<p class='Report2'>Unit Weight of Water: <span class='Value'>9.807 kN/m³</span></p>
+<p class='Report1'>Slip Surface</p>
+<p class='Report2'>Slip Surface Settings</p>
+<p class='Report3'>Search Method: <span class='Value'>Fully-Specified</span></p>
+<p class='Report3'>Direction of Movement: <span class='Value'>Right to Left</span></p>
+<p class='Report3'>Use Passive Mode: <span class='Value'>No</span></p>
+<p class='Report3'>No. of Critical Slip Surfaces to Store: <span class='Value'>1</span></p>
+<p class='Report2'>Geometry Settings</p>
+<p class='Report3'>Minimum Slip Surface Depth: <span class='Value'>0.1 m</span></p>
+<p class='Report3'>Minimum Slip Surface Volume: <span class='Value'>1 m³</span></p>
+<p class='Report3'>Number of Columns: <span class='Value'>30</span></p>
+<p class='Report2'>Tension Crack Option: <span class='Value'>(none)</span></p>
+<p class='Report1'>Optimization</p>
+<p class='Report2'>Optimize Critical Slip Surface: <span class='Value'>No</span></p>
+<p class='Report1'>Convergence</p>
+<p class='Report2'>Factor of Safety Convergence Settings</p>
+<p class='Report3'>Maximum Number of Iterations: <span class='Value'>100</span></p>
+<p class='Report3'>Tolerable Difference in F of S: <span class='Value'>0.001</span></p>
+<p class='Report2'>Under-Relaxation Criteria</p>
+<p class='Report3'>Initial Rate: <span class='Value'>1</span></p>
+<p class='Report3'>Minimum Rate: <span class='Value'>0.1</span></p>
+<p class='Report3'>Rate Reduction Factor: <span class='Value'>0.65</span></p>
+<p class='Report3'>Reduction Frequency (iterations): <span class='Value'>50</span></p>
+<p class='Report2'>Solution Settings</p>
+<p class='Report3'>Search Method: <span class='Value'>Root Finder</span></p>
+<p class='Report3'>Tolerable difference between starting and converged F of S: <span class='Value'>3</span></p>
+<p class='Report3'>Maximum iterations to calculate converged lambda: <span class='Value'>20</span></p>
+<p class='Report3'>Maximum Absolute Lambda: <span class='Value'>2</span></p>
+<h1>Materials</h1>
+<h2>COLL</h2>
+<p class='Report1'>Slope Stability Material Model: <span class='Value'>Mohr-Coulomb</span></p>
+<p class='Report1'>Unit Weight: <span class='Value'>19 kN/m³</span></p>
+<p class='Report1'>Effective Cohesion: <span class='Value'>3 kPa</span></p>
+<p class='Report1'>Effective Friction Angle: <span class='Value'>33 °</span></p>
+<p class='Report1'>Phi-B: <span class='Value'>0 °</span></p>
+<p class='Report1'>Pore Water Pressure </p>
+<p class='Report2'>Piezometric Surface: <span class='Value'>2</span></p>
+<h2>BEDROCK</h2>
+<p class='Report1'>Slope Stability Material Model: <span class='Value'>Bedrock (Impenetrable)</span></p>
+<p class='Report1'>Pore Water Pressure </p>
+<p class='Report2'>Piezometric Surface: <span class='Value'>1</span></p>
+<h2>C/HDG</h2>
+<p class='Report1'>Slope Stability Material Model: <span class='Value'>Mohr-Coulomb</span></p>
+<p class='Report1'>Unit Weight: <span class='Value'>19 kN/m³</span></p>
+<p class='Report1'>Effective Cohesion: <span class='Value'>5 kPa</span></p>
+<p class='Report1'>Effective Friction Angle: <span class='Value'>35 °</span></p>
+<p class='Report1'>Phi-B: <span class='Value'>0 °</span></p>
+<p class='Report1'>Pore Water Pressure </p>
+<p class='Report2'>Piezometric Surface: <span class='Value'>1</span></p>
+<h1>Fully Specified Slip Surfaces</h1>
+<h2>Fully Specified Slip Surface 1</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>5.4 m</span></td>
+  <td><span class='Value'>92.46 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>7.23 m</span></td>
+  <td><span class='Value'>92.35 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>8.99 m</span></td>
+  <td><span class='Value'>92.96 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>11.86 m</span></td>
+  <td><span class='Value'>94.19 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>14.93 m</span></td>
+  <td><span class='Value'>96.47 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>16.44 m</span></td>
+  <td><span class='Value'>99.02 m</span></td>
+ </tr>
+ </table>
+<h2>Fully Specified Slip Surface 2</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>5.67 m</span></td>
+  <td><span class='Value'>92.79 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>7.44 m</span></td>
+  <td><span class='Value'>92.466226 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>8.92 m</span></td>
+  <td><span class='Value'>92.87 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>11.94958 m</span></td>
+  <td><span class='Value'>94.149555 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>15.54 m</span></td>
+  <td><span class='Value'>96.36 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>17.39 m</span></td>
+  <td><span class='Value'>99.52 m</span></td>
+ </tr>
+ </table>
+<h2>Fully Specified Slip Surface 3</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>5.38 m</span></td>
+  <td><span class='Value'>92.83 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>7.36 m</span></td>
+  <td><span class='Value'>92.464954 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>9.01 m</span></td>
+  <td><span class='Value'>92.89 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>12.51 m</span></td>
+  <td><span class='Value'>93.89 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>15.98 m</span></td>
+  <td><span class='Value'>96.02 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>17.63 m</span></td>
+  <td><span class='Value'>99.2 m</span></td>
+ </tr>
+ </table>
+<h1>Slip Surface Limits</h1>
+<p class='Report1'>Left Coordinate: <span class='Value'>(0.05, 91.600037) m</span></p>
+<p class='Report1'>Right Coordinate: <span class='Value'>(18.776, 96.970037) m</span></p>
+<h1>Piezometric Surfaces</h1>
+<h2>Piezometric Surface 1</h2>
+<h3>Coordinates</h3>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 1</span></td>
+  <td><span class='Value'>5.012 m</span></td>
+  <td><span class='Value'>91.770037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 2</span></td>
+  <td><span class='Value'>10.25 m</span></td>
+  <td><span class='Value'>92.510898 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 3</span></td>
+  <td><span class='Value'>18.776 m</span></td>
+  <td><span class='Value'>92.63 m</span></td>
+ </tr>
+ </table>
+<h2>Piezometric Surface 2</h2>
+<h3>Coordinates</h3>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 1</span></td>
+  <td><span class='Value'>6.594911 m</span></td>
+  <td><span class='Value'>92.452791 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 2</span></td>
+  <td><span class='Value'>7.655 m</span></td>
+  <td><span class='Value'>92.910037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 3</span></td>
+  <td><span class='Value'>8.25 m</span></td>
+  <td><span class='Value'>93.402859 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 4</span></td>
+  <td><span class='Value'>18.776 m</span></td>
+  <td><span class='Value'>93.73 m</span></td>
+ </tr>
+ </table>
+<h1>Surcharge Loads</h1>
+<h2>Surcharge Load 1</h2>
+<p class='Report1'>Surcharge (Unit Weight): <span class='Value'>5 kN/m³</span></p>
+<p class='Report1'>Direction: <span class='Value'>Vertical</span></p>
+<h3>Coordinates</h3>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>14.916 m</span></td>
+  <td><span class='Value'>96.966197 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>14.916 m</span></td>
+  <td><span class='Value'>97.97 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>18.83 m</span></td>
+  <td><span class='Value'>97.97 m</span></td>
+ </tr>
+ </table>
+<h1>Geometry</h1>
+<p class='Report1'>Name: <span class='Value'>Section B-B</span></p>
+<h2>Settings</h2>
+<p class='Report1'>View: <span class='Value'>2D</span></p>
+<p class='Report1'>Element Thickness: <span class='Value'>0.1 m</span></p>
+<h2>Points</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 1</span></td>
+  <td><span class='Value'>0.944 m</span></td>
+  <td><span class='Value'>91.600037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 2</span></td>
+  <td><span class='Value'>5.012 m</span></td>
+  <td><span class='Value'>91.770037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 3</span></td>
+  <td><span class='Value'>7.655 m</span></td>
+  <td><span class='Value'>92.910037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 4</span></td>
+  <td><span class='Value'>8.86 m</span></td>
+  <td><span class='Value'>93.980037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 5</span></td>
+  <td><span class='Value'>9.212 m</span></td>
+  <td><span class='Value'>94.360037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 6</span></td>
+  <td><span class='Value'>9.591 m</span></td>
+  <td><span class='Value'>94.530037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 7</span></td>
+  <td><span class='Value'>10.463 m</span></td>
+  <td><span class='Value'>95.390037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 8</span></td>
+  <td><span class='Value'>14.916 m</span></td>
+  <td><span class='Value'>96.966197 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 9</span></td>
+  <td><span class='Value'>16.208 m</span></td>
+  <td><span class='Value'>97.010037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 10</span></td>
+  <td><span class='Value'>18.776 m</span></td>
+  <td><span class='Value'>96.970037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 11</span></td>
+  <td><span class='Value'>18.776 m</span></td>
+  <td><span class='Value'>81.960037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 12</span></td>
+  <td><span class='Value'>0.05 m</span></td>
+  <td><span class='Value'>81.960037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 13</span></td>
+  <td><span class='Value'>0.05 m</span></td>
+  <td><span class='Value'>91.600037 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 14</span></td>
+  <td><span class='Value'>19 m</span></td>
+  <td><span class='Value'>97.1 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 15</span></td>
+  <td><span class='Value'>19 m</span></td>
+  <td><span class='Value'>92.65 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 16</span></td>
+  <td><span class='Value'>19 m</span></td>
+  <td><span class='Value'>89.1 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 17</span></td>
+  <td><span class='Value'>19 m</span></td>
+  <td><span class='Value'>84 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 18</span></td>
+  <td><span class='Value'>-0.5 m</span></td>
+  <td><span class='Value'>97.34 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 19</span></td>
+  <td><span class='Value'>-0.5 m</span></td>
+  <td><span class='Value'>92.34 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 20</span></td>
+  <td><span class='Value'>-0.5 m</span></td>
+  <td><span class='Value'>90.34 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 21</span></td>
+  <td><span class='Value'>-0.5 m</span></td>
+  <td><span class='Value'>86.37 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 22</span></td>
+  <td><span class='Value'>-0.5 m</span></td>
+  <td><span class='Value'>81.33 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 23</span></td>
+  <td><span class='Value'>18.776 m</span></td>
+  <td><span class='Value'>92.646439 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 24</span></td>
+  <td><span class='Value'>6.594911 m</span></td>
+  <td><span class='Value'>92.452791 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 25</span></td>
+  <td><span class='Value'>18.776 m</span></td>
+  <td><span class='Value'>89.06864 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 26</span></td>
+  <td><span class='Value'>0.05 m</span></td>
+  <td><span class='Value'>86.447 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 27</span></td>
+  <td><span class='Value'>0.05 m</span></td>
+  <td><span class='Value'>90.303724 m</span></td>
+ </tr>
+ </table>
+<h2>Regions</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>Material</th>
+  <th>Points</th>
+  <th>Area</th>
+ </tr>
+ <tr>
+  <td><span class='Value'>Region 1</span></td>
+  <td><span class='Value'>C/HDG</span></td>
+  <td><span class='Value'>23,24,2,1,13,27,26,25</span></td>
+  <td><span class='Value'>84.671 m²</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Region 2</span></td>
+  <td><span class='Value'>COLL</span></td>
+  <td><span class='Value'>3,4,5,6,7,8,9,10,23,24</span></td>
+  <td><span class='Value'>37.905 m²</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Region 3</span></td>
+  <td><span class='Value'>BEDROCK</span></td>
+  <td><span class='Value'>11,12,26,25</span></td>
+  <td><span class='Value'>108.57 m²</span></td>
+ </tr>
+ </table>
+<h1>Slip Results</h1>
+<p class='Report1'>Slip Surfaces Analysed: <span class='Value'>3 of 3 converged</span></p>
+<h1>Current Slip Surface</h1>
+<p class='Report1'>Slip Surface: <span class='Value'>2</span></p>
+<p class='Report1'>Factor of Safety: <span class='Value'>1.574</span></p>
+<p class='Report1'>Volume: <span class='Value'>10.878361 m³</span></p>
+<p class='Report1'>Weight: <span class='Value'>206.68886 kN</span></p>
+<p class='Report1'>Resisting Moment: <span class='Value'>674.10824 kN·m</span></p>
+<p class='Report1'>Activating Moment: <span class='Value'>428.16951 kN·m</span></p>
+<p class='Report1'>Resisting Force: <span class='Value'>129.57219 kN</span></p>
+<p class='Report1'>Activating Force: <span class='Value'>82.330928 kN</span></p>
+<p class='Report1'>Slip Rank: <span class='Value'>1 of 3 slip surfaces</span></p>
+<p class='Report1'>Exit: <span class='Value'>(15.914734, 97.000086) m</span></p>
+<p class='Report1'>Entry: <span class='Value'>(6.8684495, 92.570776) m</span></p>
+<p class='Report1'>Radius: <span class='Value'>5.6650235 m</span></p>
+<p class='Report1'>Center: <span class='Value'>(9.7650575, 98.107413) m</span></p>
+<h2>Slip Columns</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+  <th>PWP</th>
+  <th>Base Normal Stress</th>
+  <th>Frictional Strength</th>
+  <th>Cohesive Strength</th>
+  <th>Suction Strength</th>
+  <th>Column Base Material</th>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 1</span></td>
+  <td><span class='Value'>15.727367 m</span></td>
+  <td><span class='Value'>96.680043 m</span></td>
+  <td><span class='Value'>-29.860279 kPa</span></td>
+  <td><span class='Value'>4.2841141 kPa</span></td>
+  <td><span class='Value'>2.7821362 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 2</span></td>
+  <td><span class='Value'>15.384000 m</span></td>
+  <td><span class='Value'>96.263958 m</span></td>
+  <td><span class='Value'>-25.884395 kPa</span></td>
+  <td><span class='Value'>13.564146 kPa</span></td>
+  <td><span class='Value'>8.8086591 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 3</span></td>
+  <td><span class='Value'>15.072000 m</span></td>
+  <td><span class='Value'>96.071875 m</span></td>
+  <td><span class='Value'>-24.095733 kPa</span></td>
+  <td><span class='Value'>16.189152 kPa</span></td>
+  <td><span class='Value'>10.513358 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 4</span></td>
+  <td><span class='Value'>14.767679 m</span></td>
+  <td><span class='Value'>95.884520 m</span></td>
+  <td><span class='Value'>-22.351093 kPa</span></td>
+  <td><span class='Value'>14.135733 kPa</span></td>
+  <td><span class='Value'>9.1798526 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 5</span></td>
+  <td><span class='Value'>14.471037 m</span></td>
+  <td><span class='Value'>95.701892 m</span></td>
+  <td><span class='Value'>-20.650476 kPa</span></td>
+  <td><span class='Value'>15.188594 kPa</span></td>
+  <td><span class='Value'>9.8635881 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 6</span></td>
+  <td><span class='Value'>14.174395 m</span></td>
+  <td><span class='Value'>95.519264 m</span></td>
+  <td><span class='Value'>-18.94986 kPa</span></td>
+  <td><span class='Value'>16.227007 kPa</span></td>
+  <td><span class='Value'>10.537942 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 7</span></td>
+  <td><span class='Value'>13.877753 m</span></td>
+  <td><span class='Value'>95.336636 m</span></td>
+  <td><span class='Value'>-17.249243 kPa</span></td>
+  <td><span class='Value'>17.256561 kPa</span></td>
+  <td><span class='Value'>11.206542 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 8</span></td>
+  <td><span class='Value'>13.581111 m</span></td>
+  <td><span class='Value'>95.154008 m</span></td>
+  <td><span class='Value'>-15.548626 kPa</span></td>
+  <td><span class='Value'>18.283185 kPa</span></td>
+  <td><span class='Value'>11.873239 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 9</span></td>
+  <td><span class='Value'>13.284469 m</span></td>
+  <td><span class='Value'>94.971381 m</span></td>
+  <td><span class='Value'>-13.84801 kPa</span></td>
+  <td><span class='Value'>19.313046 kPa</span></td>
+  <td><span class='Value'>12.542039 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 10</span></td>
+  <td><span class='Value'>12.987827 m</span></td>
+  <td><span class='Value'>94.788753 m</span></td>
+  <td><span class='Value'>-12.147393 kPa</span></td>
+  <td><span class='Value'>20.352452 kPa</span></td>
+  <td><span class='Value'>13.217037 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 11</span></td>
+  <td><span class='Value'>12.691185 m</span></td>
+  <td><span class='Value'>94.606125 m</span></td>
+  <td><span class='Value'>-10.446776 kPa</span></td>
+  <td><span class='Value'>21.407773 kPa</span></td>
+  <td><span class='Value'>13.90237 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 12</span></td>
+  <td><span class='Value'>12.394543 m</span></td>
+  <td><span class='Value'>94.423497 m</span></td>
+  <td><span class='Value'>-8.7461594 kPa</span></td>
+  <td><span class='Value'>22.48537 kPa</span></td>
+  <td><span class='Value'>14.60217 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 13</span></td>
+  <td><span class='Value'>12.097901 m</span></td>
+  <td><span class='Value'>94.240869 m</span></td>
+  <td><span class='Value'>-7.0455427 kPa</span></td>
+  <td><span class='Value'>23.591531 kPa</span></td>
+  <td><span class='Value'>15.320519 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 14</span></td>
+  <td><span class='Value'>11.800922 m</span></td>
+  <td><span class='Value'>94.086769 m</span></td>
+  <td><span class='Value'>-5.6247994 kPa</span></td>
+  <td><span class='Value'>28.709168 kPa</span></td>
+  <td><span class='Value'>18.643952 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 15</span></td>
+  <td><span class='Value'>11.503606 m</span></td>
+  <td><span class='Value'>93.961196 m</span></td>
+  <td><span class='Value'>-4.4839295 kPa</span></td>
+  <td><span class='Value'>29.18584 kPa</span></td>
+  <td><span class='Value'>18.953506 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 16</span></td>
+  <td><span class='Value'>11.206290 m</span></td>
+  <td><span class='Value'>93.835624 m</span></td>
+  <td><span class='Value'>-3.3430597 kPa</span></td>
+  <td><span class='Value'>29.636317 kPa</span></td>
+  <td><span class='Value'>19.246049 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 17</span></td>
+  <td><span class='Value'>10.908974 m</span></td>
+  <td><span class='Value'>93.710051 m</span></td>
+  <td><span class='Value'>-2.2021898 kPa</span></td>
+  <td><span class='Value'>30.059453 kPa</span></td>
+  <td><span class='Value'>19.520837 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 18</span></td>
+  <td><span class='Value'>10.611658 m</span></td>
+  <td><span class='Value'>93.584478 m</span></td>
+  <td><span class='Value'>-1.0613199 kPa</span></td>
+  <td><span class='Value'>30.45457 kPa</span></td>
+  <td><span class='Value'>19.777429 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 19</span></td>
+  <td><span class='Value'>10.399037 m</span></td>
+  <td><span class='Value'>93.494677 m</span></td>
+  <td><span class='Value'>-0.2454425 kPa</span></td>
+  <td><span class='Value'>30.069399 kPa</span></td>
+  <td><span class='Value'>19.527296 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 20</span></td>
+  <td><span class='Value'>10.292537 m</span></td>
+  <td><span class='Value'>93.449696 m</span></td>
+  <td><span class='Value'>0.16322249 kPa</span></td>
+  <td><span class='Value'>29.104318 kPa</span></td>
+  <td><span class='Value'>18.794567 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 21</span></td>
+  <td><span class='Value'>10.085250 m</span></td>
+  <td><span class='Value'>93.362148 m</span></td>
+  <td><span class='Value'>0.95862862 kPa</span></td>
+  <td><span class='Value'>27.200585 kPa</span></td>
+  <td><span class='Value'>17.041726 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 22</span></td>
+  <td><span class='Value'>9.755750 m</span></td>
+  <td><span class='Value'>93.222982 m</span></td>
+  <td><span class='Value'>2.2229959 kPa</span></td>
+  <td><span class='Value'>24.184913 kPa</span></td>
+  <td><span class='Value'>14.262236 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 23</span></td>
+  <td><span class='Value'>9.401500 m</span></td>
+  <td><span class='Value'>93.073363 m</span></td>
+  <td><span class='Value'>3.5823346 kPa</span></td>
+  <td><span class='Value'>22.618071 kPa</span></td>
+  <td><span class='Value'>12.361951 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 24</span></td>
+  <td><span class='Value'>9.066000 m</span></td>
+  <td><span class='Value'>92.931664 m</span></td>
+  <td><span class='Value'>4.8697253 kPa</span></td>
+  <td><span class='Value'>21.049837 kPa</span></td>
+  <td><span class='Value'>10.507488 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 25</span></td>
+  <td><span class='Value'>8.890000 m</span></td>
+  <td><span class='Value'>92.861815 m</span></td>
+  <td><span class='Value'>5.5010834 kPa</span></td>
+  <td><span class='Value'>21.283107 kPa</span></td>
+  <td><span class='Value'>10.248966 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 26</span></td>
+  <td><span class='Value'>8.707500 m</span></td>
+  <td><span class='Value'>92.812026 m</span></td>
+  <td><span class='Value'>5.9337459 kPa</span></td>
+  <td><span class='Value'>19.049796 kPa</span></td>
+  <td><span class='Value'>8.5176628 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 27</span></td>
+  <td><span class='Value'>8.402500 m</span></td>
+  <td><span class='Value'>92.728816 m</span></td>
+  <td><span class='Value'>6.6568257 kPa</span></td>
+  <td><span class='Value'>15.554682 kPa</span></td>
+  <td><span class='Value'>5.7783355 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 28</span></td>
+  <td><span class='Value'>8.101250 m</span></td>
+  <td><span class='Value'>92.646628 m</span></td>
+  <td><span class='Value'>6.2080771 kPa</span></td>
+  <td><span class='Value'>12.180243 kPa</span></td>
+  <td><span class='Value'>3.8783698 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 29</span></td>
+  <td><span class='Value'>7.803750 m</span></td>
+  <td><span class='Value'>92.565464 m</span></td>
+  <td><span class='Value'>4.5875001 kPa</span></td>
+  <td><span class='Value'>8.8306786 kPa</span></td>
+  <td><span class='Value'>2.7555524 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 30</span></td>
+  <td><span class='Value'>7.547500 m</span></td>
+  <td><span class='Value'>92.495554 m</span></td>
+  <td><span class='Value'>3.6101045 kPa</span></td>
+  <td><span class='Value'>6.7857787 kPa</span></td>
+  <td><span class='Value'>2.0623069 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 31</span></td>
+  <td><span class='Value'>7.297112 m</span></td>
+  <td><span class='Value'>92.492363 m</span></td>
+  <td><span class='Value'>2.582248 kPa</span></td>
+  <td><span class='Value'>6.3686995 kPa</span></td>
+  <td><span class='Value'>2.4589503 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Column 32</span></td>
+  <td><span class='Value'>7.011337 m</span></td>
+  <td><span class='Value'>92.544638 m</span></td>
+  <td><span class='Value'>0.86074934 kPa</span></td>
+  <td><span class='Value'>2.3009839 kPa</span></td>
+  <td><span class='Value'>0.93529923 kPa</span></td>
+  <td><span class='Value'>3 kPa</span></td>
+  <td><span class='Value'>0 kPa</span></td>
+  <td><span class='Value'>COLL</span></td>
+ </tr>
+ </table>
+
+</body>
+			 </html>

@@ -1,0 +1,15 @@
+{
+  "pdfxedit_path": "C:\\Program Files\\Tracker Software\\PDF Editor\\PDFXEdit.exe",
+  "default_folder": "",
+  "default_printer": "",
+  "duplex": "none",
+  "color": "yes",
+  "mode": "all",
+  "delay_seconds": 2.0,
+  "recursive": false,
+  "temp_dir": "",
+  "show_print_dialog": false,
+  "pages": "",
+  "backend": "pdfxchange",
+  "keep_temp_pdfs": true
+}
