@@ -45,7 +45,7 @@
           <div class="field pdf-output">
             <label for="save-pdf-folder">Output Folder</label>
             <div class="picker-row compact-picker">
-              <input id="save-pdf-folder" name="save_pdf_folder" type="text" placeholder="Where PDF files will be saved">
+              <input id="save-pdf-folder" name="save_pdf_folder" type="text" placeholder="Blank saves beside the input files">
               <button class="secondary" type="button" data-pick-folder="save-pdf-folder">Browse</button>
             </div>
           </div>
@@ -116,7 +116,11 @@
           <div class="file-preview wide">
             <div class="preview-head">
               <strong>Files Found - check files to exclude</strong>
-              <span id="print-preview-count">Not previewed</span>
+              <div class="preview-tools">
+                <button class="tiny secondary" type="button" data-select-preview="print-file-preview">Exclude all</button>
+                <button class="tiny secondary" type="button" data-clear-preview="print-file-preview">Clear</button>
+                <span id="print-preview-count">Not previewed</span>
+              </div>
             </div>
             <div id="print-file-preview" class="preview-list"></div>
           </div>
@@ -143,7 +147,7 @@
           <div class="field pdf-output">
             <label for="single-save-pdf-folder">Output Folder</label>
             <div class="picker-row compact-picker">
-              <input id="single-save-pdf-folder" name="save_pdf_folder" type="text" placeholder="Where PDF file will be saved">
+              <input id="single-save-pdf-folder" name="save_pdf_folder" type="text" placeholder="Blank saves beside the input file">
               <button class="secondary" type="button" data-pick-folder="single-save-pdf-folder">Browse</button>
             </div>
           </div>
@@ -216,7 +220,7 @@
 
           <div class="field wide">
             <label for="output">Output PDF</label>
-            <input id="output" name="output" type="text" placeholder="Blank creates merged_YYYYMMDD_HHMMSS.pdf">
+            <input id="output" name="output" type="text" placeholder="Blank saves merged_YYYYMMDD_HHMMSS.pdf in the input folder">
           </div>
 
           <div class="field">
@@ -227,7 +231,7 @@
 
           <div class="checks wide">
             <label><input name="recursive" type="checkbox"> Include subfolders</label>
-            <label><input name="open_merged" type="checkbox" checked> Open in PDF-XChange</label>
+            <label><input name="open_merged" type="checkbox"> Open in PDF-XChange</label>
           </div>
 
           <div class="actions wide">
@@ -238,7 +242,11 @@
           <div class="file-preview wide">
             <div class="preview-head">
               <strong>Files Found - check files to exclude</strong>
-              <span id="merge-preview-count">Not previewed</span>
+              <div class="preview-tools">
+                <button class="tiny secondary" type="button" data-select-preview="merge-file-preview">Exclude all</button>
+                <button class="tiny secondary" type="button" data-clear-preview="merge-file-preview">Clear</button>
+                <span id="merge-preview-count">Not previewed</span>
+              </div>
             </div>
             <div id="merge-file-preview" class="preview-list"></div>
           </div>
@@ -258,7 +266,7 @@
           <div class="field wide">
             <label for="split-output-folder">Output Folder</label>
             <div class="picker-row">
-              <input id="split-output-folder" name="output_folder" type="text" placeholder="Where separated PDF files will be saved">
+              <input id="split-output-folder" name="output_folder" type="text" placeholder="Blank saves beside the input PDF">
               <button class="secondary" type="button" data-pick-folder="split-output-folder">Browse</button>
             </div>
           </div>
@@ -269,7 +277,7 @@
           </div>
 
           <div class="checks wide">
-            <label><input name="open_folder" type="checkbox" checked> Open output folder</label>
+            <label><input name="open_folder" type="checkbox"> Open output folder</label>
           </div>
 
           <div class="actions wide">
@@ -291,7 +299,7 @@
           <div class="field wide">
             <label for="geostudio-output-folder">Output Folder</label>
             <div class="picker-row">
-              <input id="geostudio-output-folder" name="output_folder" type="text" placeholder="Where GeoStudio reports/PDFs will be saved">
+              <input id="geostudio-output-folder" name="output_folder" type="text" placeholder="Blank saves beside the GeoStudio project">
               <button class="secondary" type="button" data-pick-folder="geostudio-output-folder">Browse</button>
             </div>
           </div>
@@ -307,7 +315,11 @@
           <div class="file-preview wide">
             <div class="preview-head">
               <strong>Analyses Found</strong>
-              <span id="geostudio-analysis-count">Not loaded</span>
+              <div class="preview-tools">
+                <button class="tiny secondary" type="button" data-select-preview="geostudio-analysis-preview">Select all</button>
+                <button class="tiny secondary" type="button" data-clear-preview="geostudio-analysis-preview">Clear</button>
+                <span id="geostudio-analysis-count">Not loaded</span>
+              </div>
             </div>
             <div id="geostudio-analysis-preview" class="preview-list"></div>
           </div>
@@ -315,9 +327,7 @@
           <div class="checks wide">
             <label><input name="solve" type="checkbox"> Solve before report</label>
             <label><input name="results" type="checkbox" checked> Include results report</label>
-            <label><input name="pdf" type="checkbox" checked> Convert HTML report to PDF</label>
-            <label><input id="geostudio-print-pdf" name="print_pdf" type="checkbox"> Print generated PDFs</label>
-            <label><input name="open_folder" type="checkbox" checked> Open output folder</label>
+            <label><input name="open_folder" type="checkbox"> Open output folder</label>
           </div>
 
           <div class="field">
@@ -326,26 +336,6 @@
               <option value="2" selected>2 pages</option>
               <option value="1">1 page</option>
               <option value="4">4 pages</option>
-            </select>
-          </div>
-
-          <div class="field geostudio-print-option hidden">
-            <label for="geostudio-printer">Printer</label>
-            <select id="geostudio-printer" name="printer">
-              <option value="">Loading printers...</option>
-            </select>
-          </div>
-
-          <div class="field geostudio-print-option hidden">
-            <label for="geostudio-print-pages">Pages</label>
-            <input id="geostudio-print-pages" name="print_pages" type="text" placeholder="Blank = all pages">
-          </div>
-
-          <div class="field geostudio-print-option hidden">
-            <label for="geostudio-print-backend">Engine</label>
-            <select id="geostudio-print-backend" name="print_backend">
-              <option value="pdfxchange">PDF-XChange</option>
-              <option value="shell">Windows shell</option>
             </select>
           </div>
 

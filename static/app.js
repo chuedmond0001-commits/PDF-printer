@@ -6,7 +6,6 @@ const mergeFilesInput = document.querySelector("#merge-files");
 const mergeFilesLabel = document.querySelector("#merge-files-label");
 const printerSelect = document.querySelector("#printer");
 const singlePrinterSelect = document.querySelector("#single-printer");
-const geostudioPrinterSelect = document.querySelector("#geostudio-printer");
 const printerError = document.querySelector("#printer-error");
 
 function setStatus(text) {
@@ -66,7 +65,6 @@ async function loadPrinters() {
     const payload = await response.json();
     printerSelect.innerHTML = "";
     singlePrinterSelect.innerHTML = "";
-    geostudioPrinterSelect.innerHTML = "";
     if (payload.printers && payload.printers.length) {
       payload.printers.forEach((printer) => {
         const option = document.createElement("option");
@@ -74,7 +72,6 @@ async function loadPrinters() {
         option.textContent = printer;
         printerSelect.appendChild(option);
         singlePrinterSelect.appendChild(option.cloneNode(true));
-        geostudioPrinterSelect.appendChild(option.cloneNode(true));
       });
     } else {
       const option = document.createElement("option");
@@ -82,7 +79,6 @@ async function loadPrinters() {
       option.textContent = "No printers found";
       printerSelect.appendChild(option);
       singlePrinterSelect.appendChild(option.cloneNode(true));
-      geostudioPrinterSelect.appendChild(option.cloneNode(true));
     }
     printerError.textContent = payload.error || "";
     updatePrinterMode(document.querySelector("#print-form"), printerSelect.value);
@@ -90,7 +86,6 @@ async function loadPrinters() {
   } catch (error) {
     printerSelect.innerHTML = '<option value="">Could not load printers</option>';
     singlePrinterSelect.innerHTML = '<option value="">Could not load printers</option>';
-    geostudioPrinterSelect.innerHTML = '<option value="">Could not load printers</option>';
     printerError.textContent = error.message;
   }
 }
@@ -100,6 +95,17 @@ function renderFilePreview(containerId, countId, excludeId, files) {
   const count = document.querySelector(countId);
   const excludeInput = document.querySelector(excludeId);
   const summary = document.querySelector(`${excludeId}-summary`);
+
+  function syncExcluded() {
+    const excluded = Array.from(container.querySelectorAll("input:checked"))
+      .map((item) => item.dataset.index)
+      .join(",");
+    excludeInput.value = excluded;
+    if (summary) {
+      summary.textContent = excluded ? `Excluded file number(s): ${excluded}` : "No files excluded";
+    }
+  }
+
   container.innerHTML = "";
   excludeInput.value = "";
   if (summary) summary.textContent = "No files excluded";
@@ -112,15 +118,7 @@ function renderFilePreview(containerId, countId, excludeId, files) {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.dataset.index = file.index;
-    checkbox.addEventListener("change", () => {
-      const excluded = Array.from(container.querySelectorAll("input:checked"))
-        .map((item) => item.dataset.index)
-        .join(",");
-      excludeInput.value = excluded;
-      if (summary) {
-        summary.textContent = excluded ? `Excluded file number(s): ${excluded}` : "No files excluded";
-      }
-    });
+    checkbox.addEventListener("change", syncExcluded);
 
     const index = document.createElement("span");
     index.className = "file-index";
@@ -133,6 +131,17 @@ function renderFilePreview(containerId, countId, excludeId, files) {
     row.append(checkbox, index, name);
     container.appendChild(row);
   });
+}
+
+function setPreviewSelection(containerId, checked) {
+  const container = document.querySelector(`#${containerId}`);
+  container.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.checked = checked;
+  });
+  const firstCheckbox = container.querySelector("input[type='checkbox']");
+  if (firstCheckbox) {
+    firstCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+  }
 }
 
 function updatePrinterMode(form, printer) {
@@ -170,6 +179,18 @@ document.querySelectorAll("[data-pick-folder]").forEach((button) => {
       document.querySelector(`#${button.dataset.pickFolder}`).value = payload.path;
     }
     setStatus("Idle");
+  });
+});
+
+document.querySelectorAll("[data-select-preview]").forEach((button) => {
+  button.addEventListener("click", () => {
+    setPreviewSelection(button.dataset.selectPreview, true);
+  });
+});
+
+document.querySelectorAll("[data-clear-preview]").forEach((button) => {
+  button.addEventListener("click", () => {
+    setPreviewSelection(button.dataset.clearPreview, false);
   });
 });
 
@@ -214,15 +235,24 @@ document.querySelector("#pick-geostudio-file").addEventListener("click", async (
 });
 
 document.querySelector("#load-geostudio-analyses").addEventListener("click", async () => {
+  const container = document.querySelector("#geostudio-analysis-preview");
+  const count = document.querySelector("#geostudio-analysis-count");
+  const input = document.querySelector("#geostudio-analyses");
+  container.innerHTML = "";
+  input.value = "";
+  count.textContent = "Loading...";
+  setStatus("Loading analyses");
+  writeLog("");
   try {
     const payload = await postForm("/api/geostudio-analyses", formDataFrom(document.querySelector("#geostudio-form")));
-    const container = document.querySelector("#geostudio-analysis-preview");
-    const count = document.querySelector("#geostudio-analysis-count");
-    const input = document.querySelector("#geostudio-analyses");
-    container.innerHTML = "";
-    input.value = "";
     const analyses = payload.analyses || [];
     count.textContent = analyses.length ? `${analyses.length} analysis/analyses` : "No analyses found";
+
+    function syncSelectedAnalyses() {
+      input.value = Array.from(container.querySelectorAll("input:checked"))
+        .map((item) => item.dataset.name)
+        .join(", ");
+    }
 
     analyses.forEach((analysis, idx) => {
       const row = document.createElement("label");
@@ -231,11 +261,7 @@ document.querySelector("#load-geostudio-analyses").addEventListener("click", asy
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.dataset.name = analysis;
-      checkbox.addEventListener("change", () => {
-        input.value = Array.from(container.querySelectorAll("input:checked"))
-          .map((item) => item.dataset.name)
-          .join(", ");
-      });
+      checkbox.addEventListener("change", syncSelectedAnalyses);
 
       const index = document.createElement("span");
       index.className = "file-index";
@@ -250,18 +276,9 @@ document.querySelector("#load-geostudio-analyses").addEventListener("click", asy
     });
     setStatus("Analyses loaded");
   } catch (error) {
+    count.textContent = "Load failed";
     writeLog(`ERROR: ${error.message}`);
     setStatus("Error");
-  }
-});
-
-document.querySelector("#geostudio-print-pdf").addEventListener("change", (event) => {
-  const enabled = event.currentTarget.checked;
-  document.querySelectorAll(".geostudio-print-option").forEach((element) => {
-    element.classList.toggle("hidden", !enabled);
-  });
-  if (enabled) {
-    document.querySelector("#geostudio-form input[name='pdf']").checked = true;
   }
 });
 

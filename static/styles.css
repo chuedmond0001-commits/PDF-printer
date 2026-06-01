@@ -171,6 +171,12 @@ button.secondary:hover {
   background: #d8e2e7;
 }
 
+button.tiny {
+  font-size: 12px;
+  min-height: 30px;
+  padding: 5px 10px;
+}
+
 .checks {
   display: flex;
   flex-wrap: wrap;
@@ -206,6 +212,7 @@ button.secondary:hover {
   background: #f0f4f6;
   border-bottom: 1px solid var(--line);
   display: flex;
+  gap: 12px;
   justify-content: space-between;
   padding: 10px 12px;
 }
@@ -214,6 +221,14 @@ button.secondary:hover {
   color: var(--muted);
   font-size: 13px;
   font-weight: 700;
+}
+
+.preview-tools {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
 }
 
 .preview-list {
@@ -328,5 +343,14 @@ pre {
 
   .actions button {
     width: 100%;
+  }
+
+  .preview-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .preview-tools {
+    justify-content: flex-start;
   }
 }

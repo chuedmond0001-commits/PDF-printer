@@ -6,6 +6,7 @@ import sys
 import threading
 import time
 import webbrowser
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 
@@ -192,28 +193,55 @@ def preview_folder_files(folder_raw: str, mode: str, recursive: bool, extensions
     ]
 
 
+def xml_tag_name(element: ET.Element) -> str:
+    return element.tag.rsplit("}", 1)[-1] if "}" in element.tag else element.tag
+
+
+def xml_child(element: ET.Element, tag_name: str) -> ET.Element | None:
+    for child in element:
+        if xml_tag_name(child) == tag_name:
+            return child
+    return None
+
+
+def xml_child_text(element: ET.Element, tag_name: str) -> str:
+    child = xml_child(element, tag_name)
+    return (child.text or "").strip() if child is not None else ""
+
+
+def analysis_names_from_root(root: ET.Element) -> list[str]:
+    analyses = xml_child(root, "Analyses")
+    if analyses is None:
+        return []
+    return [
+        name
+        for analysis in analyses
+        if xml_tag_name(analysis) == "Analysis"
+        for name in [xml_child_text(analysis, "Name")]
+        if name
+    ]
+
+
 def geostudio_analysis_names(project_raw: str) -> list[str]:
     import zipfile
-    import xml.etree.ElementTree as ET
 
     project = Path(project_raw.strip('"')).expanduser().resolve()
     if not project.exists() or not project.is_file():
         raise FileNotFoundError(f"GeoStudio project not found: {project}")
 
     with zipfile.ZipFile(project, "r") as zip_ref:
-        root_xml_files = [name for name in zip_ref.namelist() if name.endswith(".xml") and "/" not in name]
-        if not root_xml_files:
-            return []
-        root = ET.fromstring(zip_ref.read(root_xml_files[0]))
-
-    names = []
-    analyses = root.find("Analyses")
-    if analyses is not None:
-        for analysis in analyses.findall("Analysis"):
-            name_element = analysis.find("Name")
-            if name_element is not None and name_element.text:
-                names.append(name_element.text)
-    return names
+        xml_files = [name for name in zip_ref.namelist() if name.lower().endswith(".xml")]
+        root_xml_files = [name for name in xml_files if "/" not in name and "\\" not in name]
+        candidates = root_xml_files + [name for name in xml_files if name not in root_xml_files]
+        for xml_file in candidates:
+            try:
+                root = ET.fromstring(zip_ref.read(xml_file))
+            except ET.ParseError:
+                continue
+            names = analysis_names_from_root(root)
+            if names:
+                return names
+    return []
 
 
 def write_file_list(files: list[str], prefix: str) -> Path:
@@ -396,13 +424,14 @@ def api_print():
     delay = request.form.get("delay", "2").strip()
     exclude = request.form.get("exclude", "").strip()
     save_pdf_folder = request.form.get("save_pdf_folder", "").strip()
+    dry_run = bool_from_form("dry_run")
 
     if not folder:
         return jsonify({"error": "Choose a folder first."}), 400
     if not printer:
         return jsonify({"error": "Choose a printer first."}), 400
     if is_pdf_printer(printer) and not save_pdf_folder:
-        return jsonify({"error": "Choose an output folder for PDF printing."}), 400
+        save_pdf_folder = str(Path(folder.strip('"')).expanduser().resolve())
 
     command = [
         str(PYTHON_EXE),
@@ -435,7 +464,7 @@ def api_print():
         command.append("--print-dialog")
     if bool_from_form("keep_temp_pdfs"):
         command.append("--keep-temp-pdfs")
-    if bool_from_form("dry_run"):
+    if dry_run:
         command.append("--dry-run")
 
     job_id = create_job("print", command)
@@ -452,16 +481,17 @@ def api_print_one():
     backend = request.form.get("backend", "pdfxchange").strip()
     delay = request.form.get("delay", "2").strip()
     save_pdf_folder = request.form.get("save_pdf_folder", "").strip()
+    dry_run = bool_from_form("dry_run")
 
     if not file_path:
         return jsonify({"error": "Choose one file first."}), 400
     if not printer:
         return jsonify({"error": "Choose a printer first."}), 400
-    if is_pdf_printer(printer) and not save_pdf_folder:
-        return jsonify({"error": "Choose an output folder for PDF printing."}), 400
     path = Path(file_path.strip('"')).expanduser().resolve()
     if not path.exists() or not path.is_file():
         return jsonify({"error": f"File not found: {path}"}), 400
+    if is_pdf_printer(printer) and not save_pdf_folder:
+        save_pdf_folder = str(path.parent)
 
     temp_list = write_file_list([str(path)], "print_one_file")
     command = [
@@ -491,7 +521,7 @@ def api_print_one():
         command.append("--print-dialog")
     if bool_from_form("keep_temp_pdfs"):
         command.append("--keep-temp-pdfs")
-    if bool_from_form("dry_run"):
+    if dry_run:
         command.append("--dry-run")
 
     job_id = create_job("print-one", command, [temp_list])
@@ -542,18 +572,15 @@ def api_split():
 
     if not input_pdf:
         return jsonify({"error": "Choose a PDF to split."}), 400
-    if not output_folder:
-        return jsonify({"error": "Choose an output folder."}), 400
-
     command = [
         str(PYTHON_EXE),
         str(SPLIT_SCRIPT),
         "--input",
         input_pdf,
-        "--output-folder",
-        output_folder,
         "--yes",
     ]
+    if output_folder:
+        command.extend(["--output-folder", output_folder])
     if ranges:
         command.extend(["--ranges", ranges])
     if bool_from_form("open_folder"):
@@ -568,44 +595,35 @@ def api_geostudio():
     project = request.form.get("project", "").strip()
     output_folder = request.form.get("output_folder", "").strip()
     analyses = request.form.get("analyses", "").strip()
-    printer = request.form.get("printer", "").strip()
-    print_pages = request.form.get("print_pages", "").strip()
-    print_backend = request.form.get("print_backend", "pdfxchange").strip()
     pages_per_sheet = request.form.get("pages_per_sheet", "2").strip() or "2"
-    print_pdf = bool_from_form("print_pdf")
+    geocmd_timeout = request.form.get("geocmd_timeout", "900").strip() or "900"
 
     if not project:
         return jsonify({"error": "Choose a GeoStudio project first."}), 400
-    if not output_folder:
-        return jsonify({"error": "Choose an output folder."}), 400
-    if print_pdf and not printer:
-        return jsonify({"error": "Choose a printer for the generated GeoStudio PDFs."}), 400
     if pages_per_sheet not in {"1", "2", "4"}:
         return jsonify({"error": "Choose 1, 2, or 4 PDF pages per sheet."}), 400
+    for label, value in {"GeoCmd timeout": geocmd_timeout}.items():
+        if not value.isdigit() or int(value) < 0:
+            return jsonify({"error": f"Enter a valid {label} in seconds."}), 400
 
     command = [
         str(PYTHON_EXE),
         str(GEOSTUDIO_SCRIPT),
         "--project",
         project,
-        "--output-folder",
-        output_folder,
+        "--geocmd-timeout",
+        geocmd_timeout,
     ]
+    if output_folder:
+        command.extend(["--output-folder", output_folder])
     if analyses:
         command.extend(["--analyses", analyses])
     if bool_from_form("solve"):
         command.append("--solve")
     if bool_from_form("results"):
         command.append("--results")
-    if bool_from_form("pdf") or print_pdf:
-        command.append("--pdf")
-        command.extend(["--pages-per-sheet", pages_per_sheet])
-    if print_pdf:
-        command.extend(["--print-pdf", "--printer", printer])
-        if print_pages:
-            command.extend(["--print-pages", print_pages])
-        if print_backend:
-            command.extend(["--print-backend", print_backend])
+    command.append("--pdf")
+    command.extend(["--pages-per-sheet", pages_per_sheet])
     if bool_from_form("open_folder"):
         command.append("--open-folder")
 

@@ -1,0 +1,674 @@
+			 <!--
+			 
+
+			 This report is in HTML format.  To view it, open it in your web browser.
+			 To edit it, open it in a word processor such as Microsoft Word.
+			 
+
+			 -->
+
+			 
+			 <html>
+			 <head>
+			 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+			 <meta name='Generator' content='Microsoft WORD' />
+			 <title>Slope Stability</title>
+			 <style>
+								 span.Value { color: #4F81BD }
+								 p, p.MsoNormal { margin: 0pt; margin-bottom: 0.001pt; font-size: 11pt; font-family: 'Calibri', 'sans-serif' }
+								 p.MsoTitle { color: black; border-bottom: solid #4F81BD 1pt; margin-bottom: 2pt; font-size: 28pt; font-family: 'Calibri', 'sans-serif'; letter-spacing: .25pt }
+								 h1 { color: #7f7f7f; margin-top: 24pt; margin-bottom: 0pt; font-size: 18pt; font-family: 'Calibri', 'sans-serif'; page-break-after:avoid }
+								 h2 { color: #7f7f7f; margin-top: 10pt; margin-bottom: 0pt; font-size: 14pt; font-family: 'Calibri', 'sans-serif'; page-break-after:avoid }
+								 h3 { color: #7f7f7f; margin-top: 15pt; margin-bottom: 5pt; margin-left: 24pt; font-size: 12pt; font-family: 'Calibri', 'sans-serif'; page-break-after:avoid }
+					 table { border-collapse: collapse; margin-left: 24pt; line-height: 115%; font-size: 11pt; font-family: 'Calibri', 'sans-serif' }
+					 th { padding: .75pt 6pt; border: 1pt solid gray; font-size: 11pt; font-family: 'Calibri', 'sans-serif'; font-weight: normal }
+					 td { padding: .75pt 6pt; border: 1pt solid gray; font-size: 11pt; font-family: 'Calibri', 'sans-serif' }
+					 td { tab-stops: decimal 0.92cm }
+					 p.Copyright { color: black; font-size: 8pt; margin-bottom: 15pt; font-family: 'Calibri', 'sans-serif' }
+					 .Report1 { margin-left: 24pt }
+.Report2 { margin-left: 48pt }
+.Report3 { margin-left: 72pt }
+.Report4 { margin-left: 96pt }
+</style>
+			 </head>
+			 
+			 <body>
+<p class='MsoTitle'>Slope Stability</p>
+<p class='Copyright'>Report generated using GeoStudio 2025.1.1.  Copyright &copy; 2025 Bentley Systems, Incorporated.</p><h1>File Information</h1>
+<p class='Report1'>File Version: <span class='Value'>11.08</span></p>
+<p class='Report1'>Product Version: <span class='Value'>25.1.1.182</span></p>
+<p class='Report1'>Created By: <span class='Value'>Chu, Edmond</span></p>
+<p class='Report1'>Last Edited By: <span class='Value'>Chu, Edmond</span></p>
+<p class='Report1'>Revision Number: <span class='Value'>43</span></p>
+<p class='Report1'>Date: <span class='Value'>05/28/2026</span></p>
+<p class='Report1'>Time: <span class='Value'>11:15:57 AM</span></p>
+<p class='Report1'>File Name: <span class='Value'>F362  Section A-A Existing Condition.gsz</span></p>
+<p class='Report1'>Directory: <span class='Value'>C:\Users\ChuE\OneDrive - AECOM\^^Monthy work folder\Code\Print pdf& sent to printer\_codex_geostudio_full_test\_geostudio_work\run_alh_xwvz\</span></p>
+<h1>Project Settings</h1>
+<p class='Report1'>Unit System: <span class='Value'>International System of Units (SI)</span></p>
+<h1>Analysis Settings</h1>
+<h2>Slope Stability</h2>
+<p class='Report1'>Kind: <span class='Value'>SLOPE/W</span></p>
+<p class='Report1'>Analysis Type: <span class='Value'>Limit Equilibrium</span></p>
+<p class='Report1'>Settings</p>
+<p class='Report2'>Method: <span class='Value'>Morgenstern-Price</span></p>
+<p class='Report2'>Side Function Settings</p>
+<p class='Report3'>Side Function: <span class='Value'>Half-Sine</span></p>
+<p class='Report2'>PWP Conditions from: <span class='Value'>Piezometric Surfaces</span></p>
+<p class='Report2'>Apply Phreatic Correction: <span class='Value'>No</span></p>
+<p class='Report2'>Staged Rapid Drawdown Analysis: <span class='Value'>No</span></p>
+<p class='Report2'>Unit Weight of Water: <span class='Value'>9.807 kN/m³</span></p>
+<p class='Report1'>Slip Surface</p>
+<p class='Report2'>Slip Surface Settings</p>
+<p class='Report3'>Search Method: <span class='Value'>Fully-Specified</span></p>
+<p class='Report3'>Direction of Movement: <span class='Value'>Right to Left</span></p>
+<p class='Report3'>Use Passive Mode: <span class='Value'>No</span></p>
+<p class='Report3'>No. of Critical Slip Surfaces to Store: <span class='Value'>1</span></p>
+<p class='Report2'>Geometry Settings</p>
+<p class='Report3'>Minimum Slip Surface Depth: <span class='Value'>0.1 m</span></p>
+<p class='Report3'>Minimum Slip Surface Volume: <span class='Value'>1 m³</span></p>
+<p class='Report3'>Number of Columns: <span class='Value'>30</span></p>
+<p class='Report2'>Tension Crack Option: <span class='Value'>(none)</span></p>
+<p class='Report1'>Optimization</p>
+<p class='Report2'>Optimize Critical Slip Surface: <span class='Value'>No</span></p>
+<p class='Report1'>Convergence</p>
+<p class='Report2'>Factor of Safety Convergence Settings</p>
+<p class='Report3'>Maximum Number of Iterations: <span class='Value'>100</span></p>
+<p class='Report3'>Tolerable Difference in F of S: <span class='Value'>0.001</span></p>
+<p class='Report2'>Under-Relaxation Criteria</p>
+<p class='Report3'>Initial Rate: <span class='Value'>1</span></p>
+<p class='Report3'>Minimum Rate: <span class='Value'>0.1</span></p>
+<p class='Report3'>Rate Reduction Factor: <span class='Value'>0.65</span></p>
+<p class='Report3'>Reduction Frequency (iterations): <span class='Value'>50</span></p>
+<p class='Report2'>Solution Settings</p>
+<p class='Report3'>Search Method: <span class='Value'>Root Finder</span></p>
+<p class='Report3'>Tolerable difference between starting and converged F of S: <span class='Value'>3</span></p>
+<p class='Report3'>Maximum iterations to calculate converged lambda: <span class='Value'>20</span></p>
+<p class='Report3'>Maximum Absolute Lambda: <span class='Value'>2</span></p>
+<h1>Materials</h1>
+<h2>FILL</h2>
+<p class='Report1'>Slope Stability Material Model: <span class='Value'>Mohr-Coulomb</span></p>
+<p class='Report1'>Unit Weight: <span class='Value'>19 kN/m³</span></p>
+<p class='Report1'>Effective Cohesion: <span class='Value'>0 kPa</span></p>
+<p class='Report1'>Effective Friction Angle: <span class='Value'>30 °</span></p>
+<p class='Report1'>Phi-B: <span class='Value'>0 °</span></p>
+<p class='Report1'>Pore Water Pressure </p>
+<p class='Report2'>Piezometric Surface: <span class='Value'>1</span></p>
+<h2>COLL</h2>
+<p class='Report1'>Slope Stability Material Model: <span class='Value'>Mohr-Coulomb</span></p>
+<p class='Report1'>Unit Weight: <span class='Value'>19 kN/m³</span></p>
+<p class='Report1'>Effective Cohesion: <span class='Value'>3 kPa</span></p>
+<p class='Report1'>Effective Friction Angle: <span class='Value'>33 °</span></p>
+<p class='Report1'>Phi-B: <span class='Value'>0 °</span></p>
+<p class='Report1'>Pore Water Pressure </p>
+<p class='Report2'>Piezometric Surface: <span class='Value'>1</span></p>
+<h2>CDG</h2>
+<p class='Report1'>Slope Stability Material Model: <span class='Value'>Mohr-Coulomb</span></p>
+<p class='Report1'>Unit Weight: <span class='Value'>19 kN/m³</span></p>
+<p class='Report1'>Effective Cohesion: <span class='Value'>5 kPa</span></p>
+<p class='Report1'>Effective Friction Angle: <span class='Value'>35 °</span></p>
+<p class='Report1'>Phi-B: <span class='Value'>0 °</span></p>
+<h2>BEDROCK</h2>
+<p class='Report1'>Slope Stability Material Model: <span class='Value'>Bedrock (Impenetrable)</span></p>
+<h1>Fully Specified Slip Surfaces</h1>
+<h2>Fully Specified Slip Surface 1</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>8 m</span></td>
+  <td><span class='Value'>86.16 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>9.23009 m</span></td>
+  <td><span class='Value'>86.281778 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>13.26 m</span></td>
+  <td><span class='Value'>86.99 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>19.54 m</span></td>
+  <td><span class='Value'>89.18 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>23.97 m</span></td>
+  <td><span class='Value'>92.88 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>25.41 m</span></td>
+  <td><span class='Value'>96.04 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>27.05 m</span></td>
+  <td><span class='Value'>99.74 m</span></td>
+ </tr>
+ </table>
+<h2>Fully Specified Slip Surface 2</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>7.74 m</span></td>
+  <td><span class='Value'>86.21 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>9.23009 m</span></td>
+  <td><span class='Value'>86.281778 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>13.78 m</span></td>
+  <td><span class='Value'>86.99 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>19.84 m</span></td>
+  <td><span class='Value'>89.31 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>24.66 m</span></td>
+  <td><span class='Value'>92.94 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>26.49 m</span></td>
+  <td><span class='Value'>95.95 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>28.32 m</span></td>
+  <td><span class='Value'>100.68 m</span></td>
+ </tr>
+ </table>
+<h2>Fully Specified Slip Surface 3</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>7.42 m</span></td>
+  <td><span class='Value'>86.14 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>9.23009 m</span></td>
+  <td><span class='Value'>86.281778 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>14.5 m</span></td>
+  <td><span class='Value'>87.03 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>20.58 m</span></td>
+  <td><span class='Value'>89.29 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>25.41 m</span></td>
+  <td><span class='Value'>92.99 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>27.12 m</span></td>
+  <td><span class='Value'>95.83 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>29.19 m</span></td>
+  <td><span class='Value'>101.44 m</span></td>
+ </tr>
+ </table>
+<h2>Fully Specified Slip Surface 4</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>16.23 m</span></td>
+  <td><span class='Value'>91.62 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>17.47 m</span></td>
+  <td><span class='Value'>91.521078 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>20.41 m</span></td>
+  <td><span class='Value'>92.29 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>24.459757 m</span></td>
+  <td><span class='Value'>94.54 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>25.789757 m</span></td>
+  <td><span class='Value'>96.74 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>26.289757 m</span></td>
+  <td><span class='Value'>98.49 m</span></td>
+ </tr>
+ </table>
+<h2>Fully Specified Slip Surface 5</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>16.19 m</span></td>
+  <td><span class='Value'>91.81 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>17.5708 m</span></td>
+  <td><span class='Value'>91.755016 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>20.9 m</span></td>
+  <td><span class='Value'>92.49 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>24.49 m</span></td>
+  <td><span class='Value'>94.52 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>26.02 m</span></td>
+  <td><span class='Value'>96.95 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>26.88 m</span></td>
+  <td><span class='Value'>99.03 m</span></td>
+ </tr>
+ </table>
+<h2>Fully Specified Slip Surface 6</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>15.89 m</span></td>
+  <td><span class='Value'>91.87 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>17.558751 m</span></td>
+  <td><span class='Value'>91.744631 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>21.74 m</span></td>
+  <td><span class='Value'>92.64 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>25.28 m</span></td>
+  <td><span class='Value'>94.74 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>27.42 m</span></td>
+  <td><span class='Value'>96.890818 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>28.3 m</span></td>
+  <td><span class='Value'>99.05 m</span></td>
+ </tr>
+ </table>
+<h1>Slip Surface Limits</h1>
+<p class='Report1'>Left Coordinate: <span class='Value'>(0.019, 85.129111) m</span></p>
+<p class='Report1'>Right Coordinate: <span class='Value'>(32.837, 97.119111) m</span></p>
+<h1>Piezometric Surfaces</h1>
+<h2>Piezometric Surface 1</h2>
+<h3>Coordinates</h3>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 1</span></td>
+  <td><span class='Value'>13.624429 m</span></td>
+  <td><span class='Value'>89.195697 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 2</span></td>
+  <td><span class='Value'>15.562 m</span></td>
+  <td><span class='Value'>90.239111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 3</span></td>
+  <td><span class='Value'>17.11 m</span></td>
+  <td><span class='Value'>90.87 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 4</span></td>
+  <td><span class='Value'>32.897 m</span></td>
+  <td><span class='Value'>92.22 m</span></td>
+ </tr>
+ </table>
+<h2>Piezometric Surface 2</h2>
+<h3>Coordinates</h3>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 1</span></td>
+  <td><span class='Value'>9.23009 m</span></td>
+  <td><span class='Value'>86.281778 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 2</span></td>
+  <td><span class='Value'>10.58 m</span></td>
+  <td><span class='Value'>87.19 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 3</span></td>
+  <td><span class='Value'>12.74 m</span></td>
+  <td><span class='Value'>88.7 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 4</span></td>
+  <td><span class='Value'>13.63 m</span></td>
+  <td><span class='Value'>89.22 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Coordinate 5</span></td>
+  <td><span class='Value'>32.837 m</span></td>
+  <td><span class='Value'>91.16 m</span></td>
+ </tr>
+ </table>
+<h1>Surcharge Loads</h1>
+<h2>Surcharge Load 1</h2>
+<p class='Report1'>Surcharge (Unit Weight): <span class='Value'>5 kN/m³</span></p>
+<p class='Report1'>Direction: <span class='Value'>Vertical</span></p>
+<h3>Coordinates</h3>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>25.161 m</span></td>
+  <td><span class='Value'>96.729111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>25.161 m</span></td>
+  <td><span class='Value'>97.75 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'></span></td>
+  <td><span class='Value'>32.87 m</span></td>
+  <td><span class='Value'>98.15 m</span></td>
+ </tr>
+ </table>
+<h1>Geometry</h1>
+<p class='Report1'>Name: <span class='Value'>Section A-A</span></p>
+<h2>Settings</h2>
+<p class='Report1'>View: <span class='Value'>2D</span></p>
+<p class='Report1'>Element Thickness: <span class='Value'>0.1 m</span></p>
+<h2>Points</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>X</th>
+  <th>Y</th>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 1</span></td>
+  <td><span class='Value'>0.019 m</span></td>
+  <td><span class='Value'>85.129111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 2</span></td>
+  <td><span class='Value'>5.437 m</span></td>
+  <td><span class='Value'>85.179111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 3</span></td>
+  <td><span class='Value'>7.217 m</span></td>
+  <td><span class='Value'>85.219111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 4</span></td>
+  <td><span class='Value'>8.415 m</span></td>
+  <td><span class='Value'>85.639111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 5</span></td>
+  <td><span class='Value'>9.455 m</span></td>
+  <td><span class='Value'>86.459111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 6</span></td>
+  <td><span class='Value'>10.587 m</span></td>
+  <td><span class='Value'>87.179111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 7</span></td>
+  <td><span class='Value'>12.698 m</span></td>
+  <td><span class='Value'>88.769111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 8</span></td>
+  <td><span class='Value'>15.502 m</span></td>
+  <td><span class='Value'>90.279111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 9</span></td>
+  <td><span class='Value'>16.717 m</span></td>
+  <td><span class='Value'>91.019111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 10</span></td>
+  <td><span class='Value'>17.854 m</span></td>
+  <td><span class='Value'>91.999111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 11</span></td>
+  <td><span class='Value'>20.578 m</span></td>
+  <td><span class='Value'>94.009111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 12</span></td>
+  <td><span class='Value'>21.481 m</span></td>
+  <td><span class='Value'>94.589111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 13</span></td>
+  <td><span class='Value'>22.137 m</span></td>
+  <td><span class='Value'>95.419111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 14</span></td>
+  <td><span class='Value'>22.908 m</span></td>
+  <td><span class='Value'>95.839111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 15</span></td>
+  <td><span class='Value'>25.161 m</span></td>
+  <td><span class='Value'>96.729111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 16</span></td>
+  <td><span class='Value'>29.771 m</span></td>
+  <td><span class='Value'>97.059111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 17</span></td>
+  <td><span class='Value'>32.837 m</span></td>
+  <td><span class='Value'>97.119111 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 18</span></td>
+  <td><span class='Value'>32.837 m</span></td>
+  <td><span class='Value'>76.986889 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 19</span></td>
+  <td><span class='Value'>0.019 m</span></td>
+  <td><span class='Value'>76.986889 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 20</span></td>
+  <td><span class='Value'>28.48 m</span></td>
+  <td><span class='Value'>92.58 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 21</span></td>
+  <td><span class='Value'>28.48 m</span></td>
+  <td><span class='Value'>90.76 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 22</span></td>
+  <td><span class='Value'>28.48 m</span></td>
+  <td><span class='Value'>87.96 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 23</span></td>
+  <td><span class='Value'>28.48 m</span></td>
+  <td><span class='Value'>82.96 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 24</span></td>
+  <td><span class='Value'>6 m</span></td>
+  <td><span class='Value'>91.48 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 25</span></td>
+  <td><span class='Value'>6 m</span></td>
+  <td><span class='Value'>90.88 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 26</span></td>
+  <td><span class='Value'>6 m</span></td>
+  <td><span class='Value'>88.48 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 27</span></td>
+  <td><span class='Value'>6 m</span></td>
+  <td><span class='Value'>86 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 28</span></td>
+  <td><span class='Value'>6 m</span></td>
+  <td><span class='Value'>80.97 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 29</span></td>
+  <td><span class='Value'>17.5708 m</span></td>
+  <td><span class='Value'>91.755016 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 30</span></td>
+  <td><span class='Value'>17.558751 m</span></td>
+  <td><span class='Value'>91.744631 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 31</span></td>
+  <td><span class='Value'>32.837 m</span></td>
+  <td><span class='Value'>92.887492 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 32</span></td>
+  <td><span class='Value'>13.564429 m</span></td>
+  <td><span class='Value'>89.235697 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 33</span></td>
+  <td><span class='Value'>32.837 m</span></td>
+  <td><span class='Value'>91.161054 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 34</span></td>
+  <td><span class='Value'>9.23009 m</span></td>
+  <td><span class='Value'>86.281778 m</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Point 35</span></td>
+  <td><span class='Value'>32.837 m</span></td>
+  <td><span class='Value'>88.341137 m</span></td>
+ </tr>
+ </table>
+<h2>Regions</h2>
+<table>
+ <tr>
+  <th></th>
+  <th>Material</th>
+  <th>Points</th>
+  <th>Area</th>
+ </tr>
+ <tr>
+  <td><span class='Value'>Region 1</span></td>
+  <td><span class='Value'>BEDROCK</span></td>
+  <td><span class='Value'>2,3,4,34,35,18,19,1</span></td>
+  <td><span class='Value'>320.03 m²</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Region 2</span></td>
+  <td><span class='Value'>FILL</span></td>
+  <td><span class='Value'>29,10,11,12,13,14,15,16,17,31,30</span></td>
+  <td><span class='Value'>52.531 m²</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Region 3</span></td>
+  <td><span class='Value'>COLL</span></td>
+  <td><span class='Value'>8,9,30,31,33,32</span></td>
+  <td><span class='Value'>33.044 m²</span></td>
+ </tr>
+ <tr>
+  <td><span class='Value'>Region 4</span></td>
+  <td><span class='Value'>CDG</span></td>
+  <td><span class='Value'>5,6,7,32,33,35,34</span></td>
+  <td><span class='Value'>57.733 m²</span></td>
+ </tr>
+ </table>
+
+</body>
+			 </html>

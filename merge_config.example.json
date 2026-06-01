@@ -4,5 +4,5 @@
   "output_folder": "",
   "recursive": false,
   "temp_dir": "",
-  "open_merged_pdf": true
+  "open_merged_pdf": false
 }

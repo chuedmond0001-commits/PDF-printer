@@ -20,7 +20,7 @@ DEFAULT_CONFIG = {
     "output_folder": "",
     "recursive": False,
     "temp_dir": "",
-    "open_merged_pdf": True,
+    "open_merged_pdf": False,
 }
 
 IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff", ".webp")
@@ -166,9 +166,7 @@ def resolve_output_pdf(raw_output: str | None, folder: Path, config: dict) -> Pa
             else:
                 output_pdf = Path.cwd() / output_pdf
     else:
-        output_folder_raw = config.get("output_folder") or ""
-        output_folder = Path(output_folder_raw).expanduser() if output_folder_raw else folder
-        output_pdf = default_merge_output_path(output_folder)
+        output_pdf = default_merge_output_path(folder)
 
     if output_pdf.suffix.lower() != ".pdf":
         output_pdf = output_pdf.with_suffix(".pdf")
@@ -207,7 +205,7 @@ def resolve_options(args: argparse.Namespace, config: dict) -> MergeOptions:
 
     output_pdf = resolve_output_pdf(args.output, folder, config)
     pdfxedit_path = Path(args.pdfxedit or config.get("pdfxedit_path") or DEFAULT_CONFIG["pdfxedit_path"])
-    open_merged_pdf = bool(config.get("open_merged_pdf", True))
+    open_merged_pdf = bool(config.get("open_merged_pdf", DEFAULT_CONFIG["open_merged_pdf"]))
     if args.open_merged:
         open_merged_pdf = True
     if args.no_open_merged:

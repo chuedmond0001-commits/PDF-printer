@@ -50,7 +50,11 @@ class SplitOptions:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Split one PDF into separate PDF files.")
     parser.add_argument("--input", required=True, help="PDF file to split.")
-    parser.add_argument("--output-folder", required=True, help="Folder where split PDFs will be saved.")
+    parser.add_argument(
+        "--output-folder",
+        default="",
+        help="Folder where split PDFs will be saved. Defaults to the input PDF folder.",
+    )
     parser.add_argument(
         "--ranges",
         default="",
@@ -68,7 +72,12 @@ def resolve_options(args: argparse.Namespace) -> SplitOptions:
     if input_pdf.suffix.lower() != ".pdf":
         raise ValueError("Input file must be a PDF.")
 
-    output_folder = Path(args.output_folder.strip('"')).expanduser().resolve()
+    output_folder_raw = args.output_folder.strip('"')
+    output_folder = (
+        Path(output_folder_raw).expanduser().resolve()
+        if output_folder_raw
+        else input_pdf.parent
+    )
     output_folder.mkdir(parents=True, exist_ok=True)
 
     return SplitOptions(
